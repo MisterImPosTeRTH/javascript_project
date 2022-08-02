@@ -2,15 +2,43 @@
 <html>
 
 <head>
-    <title>Page Title</title>
+    <script>
+        function greeting() {
+            let name = prompt("Please input your name");
+            window.alert('Hello ' + name);
+            document.getElementById('demo').innerHTML = "Hello " + name;
+        }
+
+        function changeTored() {
+            document.getElementById('demo').style.color = "red";
+        }
+
+        function changeToDog() {
+            document.getElementById('image').src = "dog.png";
+        }
+
+        function changeToCat() {
+            document.getElementById('image').src = "cat.png";
+        }
+    </script>
 </head>
 
 <body>
-    <img src="https://i.pinimg.com/550x/0e/1a/04/0e1a04985933d7e2270259fd1869790f.jpg">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdtGzxkPzQPHql6Dh46kkKTgNqztfriw5r-g&usqp=CAU">
-    <h1>This is a Heading</h1>
-    <p>This is a paragraph.</p>
 
+    <h2>My First JavaScript</h2>
+
+    <button type="button" onclick="greeting()">
+    Click me to greeting.</button>
+    <button type="button" onclick="changeTored()">
+    Click to change the color of text</button>
+    <p id="demo"></p>
+    <button type="button" onclick="changeToDog()">
+        Change to Dog
+    </button>
+    <button type="button" onclick="changeToCat()">
+        Change to Cats
+    </button>
+    <img id="image" src="cat.png">
 </body>
 
 </html>
