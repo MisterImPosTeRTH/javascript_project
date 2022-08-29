@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        const product = [{
+            "id": "1",
+            "name": "Taiwan Tea",
+            "price": "45",
+            "img": "Taiwan_Tea.png"
+        }, {
+            "id": "2",
+            "name": "Matcha Green Tea",
+            "price": "45",
+            "img": "Matcha_Tea.png"
+        }, {
+            "id": "3",
+            "name": "Thai Tea",
+            "price": "45",
+            "img": "Thai_Tea.png"
+        }, {
+            "id": "4",
+            "name": "Lemon Tea",
+            "price": "45",
+            "img": "Lemon_Tea.png"
+        }, {
+            "id": "5",
+            "name": "Jasmine Tea",
+            "price": "40",
+            "img": "Jasmine_Tea.png"
+        }, {
+            "id": "6",
+            "name": "Cocoa",
+            "price": "45",
+            "img": "Cocoa.png"
+        }, {
+            "id": "7",
+            "name": "Cocoa & Mint",
+            "price": "45",
+            "img": "Cocoa_Mint.png"
+        }, {
+            "id": "8",
+            "name": "Milk",
+            "price": "40",
+            "img": "Milk.png"
+        }, {
+            "id": "9",
+            "name": "Latte",
+            "price": "45",
+            "img": "Latte.png"
+        }, {
+            "id": "10",
+            "name": "Cappuccino",
+            "price": "45",
+            "img": "Cappuccino.png"
+        }, {
+            "id": "11",
+            "name": "Espresso",
+            "price": "45",
+            "img": "Espresso.png"
+        }, {
+            "id": "12",
+            "name": "Americano",
+            "price": "45",
+            "img": "Americano.png"
+        }, {
+            "id": "13",
+            "name": "Mocha",
+            "price": "45",
+            "img": "Mocha.png"
+        }, {
+            "id": "14",
+            "name": "Black Orange Coffee",
+            "price": "50",
+            "img": "Black_Orange.png"
+        }, {
+            "id": "15",
+            "name": "Water",
+            "price": "10",
+            "img": "Water.png"
+        }];
+
+        let pro_tb = "";
+        let isAgain = false;
+        let isShow = false;
+
+        function toShowTables() {
+            isShow = !isShow;
+            if (isShow) {
+                if (isAgain) {
+                    document.getElementById("product_table").style.display = "block";
+                } else {
+                    pro_tb += "<table>";
+                    pro_tb += "<tr>" +
+                        "<th>" + "Number" + "</th>" +
+                        "<th>" + "Name" + "</th>" +
+                        "<th>" + "Price" + "</th>" +
+                        "<th>" + "Image" + "</th>" +
+                        "</tr>";
+                    product.forEach(showTables);
+                    pro_tb += "</table>";
+                    document.getElementById('product_table').innerHTML = pro_tb;
+                    isAgain = !isAgain;
+                }
+
+            } else {
+                document.getElementById('product_table').style.display = "none";
+            }
+        }
+
+        function showTables(value) {
+            pro_tb += "<tr>";
+            pro_tb += "<td>" + value.id + "</td>";
+            pro_tb += "<td>" + value.name + "</td>";
+            pro_tb += "<td>" + value.price + "</td>";
+            pro_tb += "<td>" + '<img src="' + value.img + '"alt="' + value.img + '">' + "</td>";
+            pro_tb += "</tr>";
+        }
+    </script>
+
+    <style>
+        td {
+            border: 2px solid;
+            text-align: center;
+        }
+        
+        #content {
+            display: flex;
+            justify-content: center;
+        }
+        
+        th {
+            text-align: center;
+            height: 50px;
+            background-color: #D4A373;
+            color: #FEFAE0;
+            border: 2px solid;
+            border-color: black;
+        }
+        
+        table {
+            width: 800px;
+            font-size: large;
+            font-family: Arial;
+            border-collapse: collapse;
+            border-width: 2px;
+        }
+        
+        .button {
+            background-color: #CCD5AE;
+            /* Green */
+            border: none;
+            border-radius: 10px;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>My Product</h1>
+
+    <button type="button" class="button" onclick="toShowTables()">
+        Show / Hide table
+    </button>
+    <div id="content">
+        <div id="product_table"></div>
+    </div>
+</body>
+
+</html>
